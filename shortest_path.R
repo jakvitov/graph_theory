@@ -1,5 +1,5 @@
 #This script contains implementation of shortest path in oriented graph finding algorithms
-
+library("collections")
 #One recursive iteration of ford fulkerson algorithm
 ford_fulkerson_iteration =function(grph, start, end, shortest_paths) {
   #All predecessors of end
@@ -39,8 +39,22 @@ ford_fulkerson = function(grph, start, end) {
 #Faster than Ford Fulkerson
 dijkstra = function(grph, start, end) {
   shortest_paths=rep(Inf, nrow(grph))
-  shortest_path[start] = 0;
+  shortest_paths[start] = 0
   to_visit = priority_queue
+  current_node = NaN
+  
+  #Empty the queue until it is empty or we reached the end
+  while (to_visit$size() != 0 || current_node == end) {
+    current_node = to_visit$pop()
+    #Neighbours are in the column of the matrix 
+    neighbours = grph[,current_node]
+    for (i in range(1:length(neighbours))) {
+      #The connnection does not exist - skip neighbour
+      if (neighbours[i] == 0) {
+        next
+      }
+    }
+  }
 }
 
 test_adjacency = matrix(c(0,2,1,0, 0,0,0,5, 0,0,0,3, 0,0,0,0), nrow=4, ncol=4, byrow=TRUE)
