@@ -34,5 +34,15 @@ ford_fulkerson = function(grph, start, end) {
   return(ford_fulkerson_iteration(grph, start, end, shortest_paths)[end])
 }
 
+
+#Given adjacency matrix of a graph, return shortest path from start to end
+#Faster than Ford Fulkerson
+dijkstra = function(grph, start, end) {
+  shortest_paths=rep(Inf, nrow(grph))
+  shortest_path[start] = 0;
+  to_visit = priority_queue
+}
+
 test_adjacency = matrix(c(0,2,1,0, 0,0,0,5, 0,0,0,3, 0,0,0,0), nrow=4, ncol=4, byrow=TRUE)
 print(ford_fulkerson(test_adjacency, 1, 4))
+print(dijkstra(test_adjacency, 1, 4))
