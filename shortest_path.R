@@ -12,6 +12,8 @@ ford_fulkerson_iteration =function(grph, start, end, shortest_paths) {
     }
     #If current shortest path is not yet known -> we recursively call to construct it
     if (is.nan(shortest_paths[i])) {
+      #Find shortest path from start to i
+      #Dynamic updating of shortest paths helps us to dynamically update previously calculated paths, thus speeding us up
       shortest_paths = ford_fulkerson_iteration(grph, start, i, shortest_paths);
     }
     #If we found a shorter path - we update the value
